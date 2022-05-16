@@ -33,7 +33,15 @@ const getGoals = asyncHandler(async (req,res) => {
  * @access private
  */
  const updateGoal = asyncHandler(async (req,res) => {
-    res.status(200).json({message: `Update goal ${req.params.id}`})
+    const goal = await Goal.findById(req.params.id)
+
+    if(!goal){
+        res.status(400)
+        throw new Error('Goal not found')
+    }
+
+    const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    res.status(200).json(updatedGoal)
 })
 /**
  * It's a function that takes in a request and a response object and returns a json object with a message property.
@@ -42,7 +50,16 @@ const getGoals = asyncHandler(async (req,res) => {
  * @access private
  */
  const deleteGoal = asyncHandler(async (req,res) => {
-    res.status(200).json({message: `delete goal ${req.params.id}`})
+    const goal = await Goal.findById(req.params.id)
+
+    if(!goal){
+        res.status(400)
+        throw new Error('Goal not found')
+    }
+
+    // const deletedGoal = await Goal.findByIdAndDelete(req.params.id)
+    await goal.remove()
+    res.status(200).json({id: req.params.id })
 })
 module.exports = {
     getGoals,
