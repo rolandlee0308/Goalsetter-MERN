@@ -62,6 +62,7 @@ export const authSlice = createSlice({
       state.message = "";
     },
   },
+  //needed for handling async states
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state) => {
