@@ -7,6 +7,7 @@
     "start": "node backend/server.js",
     "backend": "nodemon backend/server.js",
     "frontend": "npm start --prefix frontend",
+    "setup": "npm install && cd frontend && npm install",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "Roland Lee",
