@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
-const Goal = require("../model/goalModel");
-const User = require("../model/userModel");
+const Goal = require("../models/goal");
+const User = require("../models/user");
 /**
  * It's a function that takes in a request and a response object and returns a json object with a message property.
  * @param req - The request object. This contains information about the HTTP request that raised the event.
