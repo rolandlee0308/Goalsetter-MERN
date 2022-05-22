@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "frontend": "npm start --prefix frontend"
+    "backend": "nodemon backend/server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "Roland Lee",
   "license": "MIT",
