@@ -18,3 +18,7 @@ npm run setup
 ```
 npm run dev
 ```
+
+### Short Demo
+
+![goalsetter-gif](https://user-images.githubusercontent.com/19438339/169764222-22a9ea43-6a42-4c7b-92e8-609deedcf849.gif)
