@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../redux/Auth/slice";
 import { AppDispatch } from "../../redux/store";
+import { toast } from "react-toastify";
 export default function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
@@ -11,6 +12,7 @@ export default function Header() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
+    toast.success("Logout successfully!");
     navigate("/");
   };
   return (

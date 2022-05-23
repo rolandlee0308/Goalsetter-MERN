@@ -27,15 +27,21 @@ export default function Dashboard() {
         toastId: "no-dup",
       });
       navigate("/login");
+    } else {
+      dispatch(getGoals());
     }
-
-    dispatch(getGoals());
 
     //dispatch when component unmounts
     return () => {
       dispatch(reset());
     };
-  }, [user, navigate, isError, message, dispatch]);
+  }, [navigate, isError, message, dispatch]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   if (isLoading) {
     return <Spinner />;
